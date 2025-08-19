@@ -1,22 +1,20 @@
 "use client";
+import { Heart } from "lucide-react";
+import { useState } from "react";
 
 const Page = () => {
-  const test = () => {
-    alert("다까먹음 ㅎㅎ");
-  };
-  const abc = () => {
-    console.log("수업 언제끝나!");
-  };
-
-  // 페이지 /quiz
-  // button 태그 nextjs 내용 만들고
-  // 클릭하면 알럿으로 nextjs 할만함!
+  const [num, setNum] = useState(0);
+  const [fill, setFill] = useState(false);
 
   return (
-    <>
-      <button onClick={test}>0</button>
-      <button onClick={abc}>수업</button>
-    </>
+    <div>
+      <button onClick={() => setNum((x) => x - 1)}>-</button>
+      <span style={{ color: num >= 5 ? "green" : num <= -5 ? "red" : "black" }}>{num}</span>
+      <button onClick={() => setNum((x) => x + 1)}>+</button>
+
+      <Heart fill={fill ? "red" : "white"} onClick={() => setFill((x) => !x)} />
+      {/* 2. 하트 누르면 꽉찬거 다시누르면 빈하트 만들기 */}
+    </div>
   );
 };
 
