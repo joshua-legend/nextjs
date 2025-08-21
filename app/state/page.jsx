@@ -1,15 +1,9 @@
-"use client";
-
-import Todolist from "@/todolist/Todolist";
-
 const Page = () => {
-  return (
-    <>
-      <Todolist name={"이정"}></Todolist>
-      <Todolist name={"태윤"}></Todolist>
-      <Todolist name={"셀레나"}></Todolist>
-    </>
-  );
+  fetch("https://dummyjson.com/recipes")
+    .then((res) => res.json())
+    .then((v) => v);
+
+  return <div className="grid grid-cols-4"></div>;
 };
 
 export default Page;
